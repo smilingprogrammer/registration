@@ -20,15 +20,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
-
     private final AppUserService appUserService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Bean
-    public AuthenticationManager authManagerBuilder(AuthenticationManagerBuilder authenticationManagerBuilder)
-            throws Exception{
-        return authenticationManagerBuilder.authenticationProvider(daoAuthenticationProvider()).build();
-    }
+//    @Bean
+//    public AuthenticationManager authManagerBuilder(AuthenticationManagerBuilder authenticationManagerBuilder)
+//            throws Exception{
+//        return authenticationManagerBuilder.authenticationProvider(daoAuthenticationProvider()).build();
+//    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
