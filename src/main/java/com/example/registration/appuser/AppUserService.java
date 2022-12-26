@@ -44,6 +44,6 @@ public class AppUserService implements UserDetailsService {
 
         // TODO: Send Confirmation email
 
-        return "It works";
+        return "It is working";
     }
 }
