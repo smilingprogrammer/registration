@@ -27,7 +27,8 @@ public class WebSecurityConfig {
             throws Exception{
         AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
-        return authenticationManagerBuilder.build();
+        return authenticationManagerBuilder
+                .authenticationProvider(daoAuthenticationProvider()).build();
     }
 
     @Bean
@@ -39,7 +40,8 @@ public class WebSecurityConfig {
                 .requestMatchers("/api/v*/registration/**")
                 .permitAll()
                 .anyRequest()
-                .authenticated().and().authenticationManager(authManagerBuilder(http))
+                .authenticated().and()
+                .authenticationManager(authManagerBuilder(http))
                 .formLogin();
 
         return http.build();
