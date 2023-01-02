@@ -39,7 +39,6 @@ public class AppUserService implements UserDetailsService {
                 .isPresent();
 
         if (userExists){
-
             // TODO check if attributes are thesame
             // check if email not confirmed send confirmation email
             throw new IllegalStateException("Email already been used");
