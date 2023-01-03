@@ -40,11 +40,12 @@ public class AppUserService implements UserDetailsService {
 
         boolean emailNotConfirmed = appUser.getEnabled();
 
-        if (!emailNotConfirmed){
-            throw new IllegalStateException("Email not confirmed");
-        }
+
 
         if (userExists){
+            if (!emailNotConfirmed){
+                throw new IllegalStateException("Email not confirmed");
+            }
             // TODO check if attributes are thesame
             // check if email not confirmed send confirmation email
             throw new IllegalStateException("Email already been used");
