@@ -38,6 +38,12 @@ public class AppUserService implements UserDetailsService {
                 .findByEmail(appUser.getEmail())
                 .isPresent();
 
+        boolean emailNotConfirmed = appUser.getEnabled();
+
+        if (!emailNotConfirmed){
+            throw new IllegalStateException("Email not confirmed");
+        }
+
         if (userExists){
             // TODO check if attributes are thesame
             // check if email not confirmed send confirmation email
