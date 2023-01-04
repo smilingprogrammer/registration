@@ -40,8 +40,6 @@ public class AppUserService implements UserDetailsService {
 
         boolean emailNotConfirmed = appUser.getEnabled();
 
-
-
         if (userExists){
             if (!emailNotConfirmed){
                 throw new IllegalStateException("Email not confirmed");
@@ -51,8 +49,9 @@ public class AppUserService implements UserDetailsService {
             throw new IllegalStateException("Email already been used");
         }
 
+
         String encodedPassword = bCryptPasswordEncoder
-                .encode(appUser.getEmail());
+                .encode(appUser.getPassword());
 
         appUser.setPassword(encodedPassword);
 
