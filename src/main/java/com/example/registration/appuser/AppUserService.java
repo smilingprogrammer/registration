@@ -60,7 +60,6 @@ public class AppUserService implements UserDetailsService {
         String token = UUID.randomUUID().toString();
 
         ConfirmationToken confirmationToken = new ConfirmationToken(
-
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
